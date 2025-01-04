@@ -1,12 +1,12 @@
 [submodule "step1"]
 	path = step1
-	url = git@github.com:michaelandom/rust_take_2.git
+	url = https://github.com/michaelandom/rust_take_2.git
 [submodule "step2"]
 	path = step2
-	url = git@github.com:michaelandom/rust_take_2.git
+	url = https://github.com/michaelandom/rust_take_2.git
 [submodule "step3"]
 	path = step3
-	url = git@github.com:michaelandom/rust_take_2.git
+	url = https://github.com/michaelandom/rust_take_2.git
 [submodule "project1"]
 	path = project1
-	url = git@github.com:michaelandom/rust_take_2.git
+	url = https://github.com/michaelandom/rust_take_2.git
