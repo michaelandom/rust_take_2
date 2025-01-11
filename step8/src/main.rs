@@ -8,8 +8,6 @@ fn main() {
 
     s1.clear(); // this is okay 
 
-
-
     let s2 = "hello you";
 
     let word = first_word(&s2);
