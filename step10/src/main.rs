@@ -18,6 +18,15 @@ impl Rectangle {
         self.area() > other.area()
     }
 }
+impl Rectangle {
+    
+    fn square(size:u32)-> Rectangle{
+        Rectangle{
+            wight:size,
+            hight:size
+        }
+    }
+}
 
 fn main() {
     let rect = Rectangle { wight: 5, hight: 5 };
@@ -35,4 +44,9 @@ fn main() {
         "rect can_hold_2 {:?}",
         rect.can_hold_2(&Rectangle { wight: 3, hight:4 })
     );
+
+    let square = Rectangle::square(6);
+
+    println!("{} {:#?}","square".green(), square);
+    println!("square area {:?}", square.area());
 }
