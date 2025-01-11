@@ -1,12 +1,12 @@
 use colored::*;
 #[derive(Debug)]
 struct Rectangle {
-    wight: i32,
-    hight: i32,
+    wight: u32,
+    hight: u32,
 }
 
 impl Rectangle {
-    fn area(&self) -> i32 {
+    fn area(&self) -> u32 {
         return self.wight * self.hight;
     }
 
