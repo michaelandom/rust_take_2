@@ -43,6 +43,14 @@ fn main() {
      value_in_cents(Coin::Nickel(UsState::Alabama));
 
 
+     
+     let a = Some(5);
+     let b = plus_one(a);
+     let c = plus_one(None);
+
+
+     println!(" a {:?}, b {:?}, c {:?}",a,b,c);
+
 
 
 }
@@ -86,4 +94,9 @@ fn p(coin_name: &str, state: UsState){
     println!("state {:?} for {:?}!", coin_name,state);
 }
 
-
+fn plus_one(x: Option<i32>) -> Option<i32> {
+    match x {
+        Some(num) => Some(num+1),
+        None => None  
+    }
+}
