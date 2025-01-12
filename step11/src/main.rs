@@ -52,6 +52,23 @@ fn main() {
      println!(" a {:?}, b {:?}, c {:?}",a,b,c);
 
 
+     let some_num = Some(4);
+
+     match some_num {
+        Some(3)=> println!("three"),
+        Some(5)=> println!("five"),
+        _ => ()
+     }
+
+     if let Some(3) = some_num {
+        println!("there");
+     } else if let Some(5) = some_num {
+        println!("five");
+     } else {
+        ()
+     }
+
+
 
 }
 #[derive(Debug)]
