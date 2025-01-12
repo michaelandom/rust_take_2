@@ -40,8 +40,50 @@ fn main() {
 
 
 
+     value_in_cents(Coin::Nickel(UsState::Alabama));
 
 
 
 
 }
+#[derive(Debug)]
+enum Coin {
+    Penny(UsState),
+    Nickel(UsState),
+    Dime(UsState),
+    Quarter(UsState)
+}
+#[derive(Debug)]
+enum UsState {
+    Alabama,
+    Alaska,
+    Arizona,
+    Arkansas,
+    California
+}
+
+fn value_in_cents(coin:Coin) -> u8 {
+    match coin {
+        Coin::Penny(state) => {
+            p("Penny",state);
+            1
+        },
+        Coin::Nickel(state) => {
+            p("Nickel",state);
+            5
+        },
+        Coin::Dime(state) => {
+            p("Dime",state);
+            10},
+        Coin::Quarter(state) => {
+            p("Quarter",state);
+            25
+        },
+    }
+}
+
+fn p(coin_name: &str, state: UsState){
+    println!("state {:?} for {:?}!", coin_name,state);
+}
+
+
