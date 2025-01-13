@@ -1,9 +1,4 @@
-pub mod hosting {
-    pub fn add_to_waitlist() {}
-
-     fn seat_at_waitlist() {}
- }
-
+pub mod hosting;
  pub mod serving {
      fn take_order() {}
      pub fn serve_order() {}
