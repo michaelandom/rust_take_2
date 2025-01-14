@@ -1,4 +1,6 @@
 
+use std::collections::HashMap;
+
 use unicode_segmentation::UnicodeSegmentation;
 
 fn main() {
@@ -24,6 +26,27 @@ fn main() {
     }
 
 
+
+    let blue = "blue".to_string();
+    let red = String::from("red");
+
+
+    let mut hash= HashMap::new();
+
+
+    hash.insert(&blue, 10);
+    hash.insert(&red, 5);
+    println!("hash {:#?}",hash);
+    println!("hash {:#?}",blue);
+    println!("hash {:#?}",red);
+
+    let score = hash.get(&blue);
+
+
+    match score {
+        Some(num) => println!("some {num}"),
+        None => println!("None {blue}")
+    }
 
 
 }
