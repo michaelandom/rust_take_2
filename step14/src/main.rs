@@ -10,12 +10,13 @@ fn main() {
         None => println!("num is None")
     }
 
-
+    for index in &mut v1 {
+        *index += 50;
+        println!("at {index}");
+    }
     for (index , value) in v1.iter().enumerate(){
         println!("at {index} is {}",value);
     }
 
-    for index in &v1 {
-        println!("at {index}");
-    }
+    
 }
