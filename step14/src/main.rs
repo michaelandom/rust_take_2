@@ -18,5 +18,22 @@ fn main() {
         println!("at {index} is {}",value);
     }
 
+
+
+
+    enum SheetCell {
+        Int(i32),
+        Float(f32),
+        Text(String)
+    }
+
+
+    let v2 = vec![SheetCell::Int(2),SheetCell::Int(2),SheetCell::Float(2.0),SheetCell::Text(String::from("as"))];
+
+// v2.get(2)
+    match v2.get(2) {
+        Some(SheetCell::Int(num)) => println!("it is {num}"),
+        _ => println!("not int") 
+    }
     
 }
