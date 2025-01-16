@@ -2,7 +2,32 @@
 use std::fs::{self,File};
 use std::io::{ErrorKind, Read};
 
+pub struct Guess{
+     value: i32
+}
+
+impl Guess {
+
+    pub fn new(value: i32) -> Guess {
+        if value < 1 || value > 100{
+            panic!("Guess value must be 1 and 100 get {}",value);
+        }
+        Guess {value}
+    }
+
+    pub fn value(&self) -> i32 {
+        self.value
+    }
+
+    
+}
+
 fn main() {
+
+    let guess = Guess::new(-5);
+
+    println!("guess {}", guess.value);
+
     method_1();
     method_2();
     // method_3();
