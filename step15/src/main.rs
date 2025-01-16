@@ -31,6 +31,7 @@ fn main() {
     hash.insert(&blue, 20);
     hash.insert(&blue, 10);
     hash.insert(&red, 5);
+    hash.insert(&red, 56);
 
     hash.entry(&yellow).or_insert(30);
     hash.entry(&yellow).or_insert(40);
