@@ -10,6 +10,12 @@ fn main() {
     let largest = get_largest(v);
 
     println!("The largest char {}",largest);
+
+    let points = Points{x:2,y:5.3};
+
+    println!("The points char {:?}",points);
+
+
 }
 
 fn get_largest<T: PartialOrd + Copy>(v: Vec<T>) -> T {
@@ -20,4 +26,9 @@ fn get_largest<T: PartialOrd + Copy>(v: Vec<T>) -> T {
         }
     }
     l
+}
+#[derive(Debug)]
+struct Points<T,U> {
+    x:T,
+    y:U,
 }
