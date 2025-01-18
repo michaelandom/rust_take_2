@@ -17,6 +17,11 @@ fn main() {
     println!("newArticle test {:?}",newArticle.test());
     println!("Tweet test {:?}",tweet.test());
     
+
+
+    println!("Tweet notify {:?}",notify(&tweet));
+
+    
 }
 
 
@@ -32,6 +37,9 @@ impl Summary for NewArticle {
         format!("{}, by {}",self.content,self.author)
     }
     
+}
+pub fn notify<T: Summary>(item: &T) {
+    println!("Breaking news! {}", item.summarize());
 }
 
 pub struct Tweet{
