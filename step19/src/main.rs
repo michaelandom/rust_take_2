@@ -21,7 +21,12 @@ fn main() {
     println!("Tweet test {:?}", tweet.test());
 
     println!("Tweet notify {:?}", notify(&tweet));
-    println!("Tweet notify_other {:?}", notify_other(&tweet,&newArticle));
+    
+    
+    println!("returns_summarizable {:?}", returns_summarizable().summarize());
+
+
+    // println!("Tweet notify_other {:?}", notify_other(&tweet,&newArticle));
 }
 
 pub struct NewArticle {
@@ -52,6 +57,14 @@ where
     1
 }
 
+fn returns_summarizable() -> impl Summary {
+    Tweet {
+        username: String::from("aaa"),
+        content: String::from("aaa"),
+        reply: true,
+        retweet: true,
+    }
+}
 
 
 pub struct Tweet {
