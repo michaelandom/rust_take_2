@@ -16,6 +16,28 @@ fn greeting(name: &String) -> String{
     format!("here {}",name)
 }
 
+struct Guess{
+    value: i32
+}
+
+impl Guess {
+
+    fn new(value:i32) -> Guess {
+        if value < 1 {
+            panic!("value not allowed mut be > 1, but {} ", value )            
+        }
+
+        if value > 100 {
+            panic!("value not allowed mut be < 100, but {}", value)
+        }
+
+        Guess {
+            value
+        }
+    }
+    
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -81,6 +103,18 @@ mod tests {
     }
 
 
+    #[test]
+    #[should_panic(expected = "value not allowed mut be < 100")]
+    fn greater_then_100(){
+        Guess::new(200);
+    }
+
+
+    #[test]
+    #[should_panic(expected = "value not allowed mut be > 1")]
+    fn leas_then_1(){
+        Guess::new(0);
+    }
 
     
 }
