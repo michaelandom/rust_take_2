@@ -47,5 +47,15 @@ mod tests {
         assert!(!s.can_hold(l));
     }
 
+
+    #[test]
+    fn size() {
+        let l = Rectangle {
+            wight:2,
+            hight:4
+        };
+
+        assert_eq!(l.hight,4);
+    }
     
 }
