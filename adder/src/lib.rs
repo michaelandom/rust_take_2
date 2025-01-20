@@ -12,6 +12,9 @@ impl Rectangle {
 }
 
 
+fn greeting(name: &String) -> String{
+    format!("here {}",name)
+}
 
 #[cfg(test)]
 mod tests {
@@ -68,5 +71,16 @@ mod tests {
 
         assert_ne!(l.hight,4);
     }
+
+
+
+    #[test]
+    fn greeting_test_name(){
+        let name = String::from("crog");
+        assert!(greeting(&name).contains("crog"),"name not found {}", name) 
+    }
+
+
+
     
 }
