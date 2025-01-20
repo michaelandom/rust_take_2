@@ -57,5 +57,16 @@ mod tests {
 
         assert_eq!(l.hight,4);
     }
+
+
+    #[test]
+    fn size_not() {
+        let l = Rectangle {
+            wight:23,
+            hight:4
+        };
+
+        assert_ne!(l.hight,4);
+    }
     
 }
