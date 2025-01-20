@@ -116,5 +116,18 @@ mod tests {
         Guess::new(0);
     }
 
+    #[test]
+    fn it_works() -> Result<(),String> {
+        if 2+2 == 4 {
+            Ok(())
+        }
+        else {
+            Err(String::from("two puls two does not equal"))
+        }
+    }
+
+
+
+
     
 }
