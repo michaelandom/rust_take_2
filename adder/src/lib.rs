@@ -12,7 +12,7 @@ impl Rectangle {
 }
 
 
-fn greeting(name: &String) -> String{
+pub fn greeting(name: &String) -> String{
     format!("here {}",name)
 }
 
@@ -25,6 +25,7 @@ impl Guess {
     // cargo test -- --show-output
     // cargo test name of function
     // cargo test -- --ignored
+    // cargo test --test intergration_test
     fn new(value:i32) -> Guess {
         if value < 1 {
             panic!("value not allowed mut be > 1, but {} ", value )            
@@ -100,7 +101,7 @@ mod tests {
 
 
     #[test]
-    fn greeting_test_name(){
+ fn greeting_test_name(){
         let name = String::from("crog");
         assert!(greeting(&name).contains("crog"),"name not found {}", name) 
     }
