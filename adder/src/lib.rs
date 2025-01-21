@@ -24,6 +24,7 @@ impl Guess {
     // cargo test -- --test-threads=1 
     // cargo test -- --show-output
     // cargo test name of function
+    // cargo test -- --ignored
     fn new(value:i32) -> Guess {
         if value < 1 {
             panic!("value not allowed mut be > 1, but {} ", value )            
@@ -119,6 +120,7 @@ mod tests {
     }
 
     #[test]
+    #[ignore = "reason"]
     fn it_works() -> Result<(),String> {
         if 2+2 == 4 {
             Ok(())
