@@ -21,7 +21,8 @@ struct Guess{
 }
 
 impl Guess {
-    // cargo test -- --test-threads=1
+    // cargo test -- --test-threads=1 
+    // cargo test -- --show-output
     fn new(value:i32) -> Guess {
         if value < 1 {
             panic!("value not allowed mut be > 1, but {} ", value )            
