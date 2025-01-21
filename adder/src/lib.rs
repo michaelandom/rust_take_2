@@ -95,7 +95,7 @@ mod tests {
             hight:4
         };
 
-        assert_ne!(l.hight,4);
+        assert_ne!(l.wight,4);
     }
 
 
