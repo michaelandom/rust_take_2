@@ -20,7 +20,6 @@ fn main() {
 fn run(config:Config) -> Result<(),Box<dyn Error>> {
     let content = fs::read_to_string(config.filename)?;
     println!("with text:\n{}", content);
-
     Ok(())
 }
 
