@@ -23,18 +23,18 @@ fn run(config:Config) -> Result<(),Box<dyn Error>> {
     Ok(())
 }
 
-struct Config {
-    query: String,
-    filename: String,
+struct Config<'a> {
+    query: &'a String,
+    filename: &'a String,
 }
 
-impl Config {
-    fn new(args: &[String]) -> Result<Config, &str> {
+impl<'a> Config<'a> {
+    fn new(args: &'a[String]) -> Result<Config, &str> {
         if args.len() < 3 {
             return Err("no args found");
         }
-        let query = args[1].clone();
-        let filename = args[2].clone();
+        let query = &args[1];
+        let filename = &args[2];
 
         Ok(Config { query, filename })
     }
