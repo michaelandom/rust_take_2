@@ -14,16 +14,16 @@ fn main() {
 }
 
 fn generate_workout(intensity: u32, random_number: i32) {
-
+    let value = simulated_calc(intensity);
     if intensity < 25 {
         println!(
             "Today, do {} pushups",
-            simulated_calc(intensity)
+            value
         );
 
         println!(
             "Next, do {} situps",
-            simulated_calc(intensity)
+            value
         );
     } else {
         if random_number ==3 {
@@ -31,7 +31,7 @@ fn generate_workout(intensity: u32, random_number: i32) {
         } else {
             println!(
                 "Next, run for {} minutes!",
-                simulated_calc(intensity)
+                value
             );
         }
     }
