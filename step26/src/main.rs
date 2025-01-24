@@ -11,6 +11,13 @@ fn main() {
     let simulated_random_number = 7;
 
     generate_workout(simulated_intensity, simulated_random_number);
+
+
+    let x =4;
+    let eq_to_x = |z| z ==x;
+    let y =4;
+
+    assert!(eq_to_x(y));
 }
 
 struct Cacher<T,U>
