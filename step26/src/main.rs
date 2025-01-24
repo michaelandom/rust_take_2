@@ -1,4 +1,4 @@
-use std::{collections::HashMap, hash::Hash, thread, time::Duration};
+use std::{collections::HashMap, fmt::Display, hash::Hash, thread, time::Duration};
 
 fn simulated_calc(intensity: u32) -> u32 {
     println!("calculating slowly...");
@@ -13,26 +13,28 @@ fn main() {
     generate_workout(simulated_intensity, simulated_random_number);
 }
 
-struct Cacher<T>
+struct Cacher<T,U>
 where
-    T: Fn(u32) -> u32,
-{
+    U: Copy + Eq + Hash,
+    T: Fn(U) -> U
+    {
     calculation: T,
-    values: HashMap<u32,u32>,
+    values: HashMap<U,U>,
 }
 
-impl<T> Cacher<T>
+impl<T,U> Cacher<T,U>
 where
-    T: Fn(u32) -> u32,
+    T: Fn(U) -> U,
+    U: Copy + Eq + Hash
 {
-    fn new(calculation:T) -> Cacher<T>{
+    fn new(calculation:T) -> Cacher<T,U>{
         Cacher {
             calculation,
             values: HashMap::new()
         }
     }
 
-    fn value(&mut self, arg:u32) -> u32 {
+    fn value(&mut self, arg:U) -> U{
 
         match self.values.get(&arg) {
             Some(v) => v.clone(),
