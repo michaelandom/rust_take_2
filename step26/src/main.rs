@@ -13,11 +13,16 @@ fn main() {
     generate_workout(simulated_intensity, simulated_random_number);
 
 
-    let x =4;
-    let eq_to_x = |z| z ==x;
-    let y =4;
+    let x =vec![1,2,3];
+    let eq_to_x = move |z| z ==x; // fn cant get x but closures 
+   
+    // println!("cant get x {}", x);
+   
+    let y =vec![1,2,3];
 
     assert!(eq_to_x(y));
+
+    //FnOnce, FnMut, Fn
 }
 
 struct Cacher<T,U>
