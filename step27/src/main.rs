@@ -14,6 +14,31 @@ struct Shoe {
     style: String,
 }
 
+struct Counter{
+    count: u32
+}
+
+impl Counter {
+    fn new() -> Counter {
+        Counter {
+            count: 0
+        }
+    }    
+}
+
+impl Iterator for Counter {
+    type Item = u32;
+    fn next(&mut self) -> Option<Self::Item> {
+        if self.count < 5 {
+            self.count += 1;
+            Some(self.count)
+        } else{
+            None
+        }
+    }
+    
+}
+
 fn shoe_in_my_size(shoes: Vec<Shoe>, shoe_size: u32) -> Vec<Shoe> {
     shoes
         .into_iter()
@@ -81,6 +106,29 @@ fn iterator_map() {
 
     assert_eq!(v2, [2, 3, 4]);
 }
+
+#[test]
+fn counter_test() {
+    let mut v1 = Counter::new();
+    assert_eq!(Some(1),v1.next());
+    assert_eq!(Some(2),v1.next());
+    assert_eq!(Some(3),v1.next());
+    assert_eq!(Some(4),v1.next());
+    assert_eq!(Some(5),v1.next());
+    assert_eq!(None,v1.next());
+}
+
+#[test]
+fn test_count_2(){
+    let sum:u32 = Counter::new()
+                 .zip(Counter::new().skip(1))
+                 .map(|(a,b)|  a * b)
+                 .filter(|a| a % 3 == 0)
+                 .sum();
+    assert_eq!(18, sum);
+}
+
+
 
 #[test]
 fn shoe_in_my_size_test() {
