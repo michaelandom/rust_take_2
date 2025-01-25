@@ -8,6 +8,18 @@ fn main() {
     }
 }
 
+
+struct Shoe {
+    size: u32,
+    style: String,
+}
+
+fn shoe_in_my_size(shoes: Vec<Shoe>, shoe_size: u32) -> Vec<Shoe> {
+    shoes.into_iter().filter(|shoe| shoe.size == shoe_size).collect()
+}
+
+
+
 #[test]
 fn iterator_test_into() {
     let v1 = vec![1, 2, 3];
