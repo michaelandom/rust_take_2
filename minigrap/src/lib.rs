@@ -9,9 +9,9 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     
 
     let result = if config.case_insensitive {
-        search(config.query, &content)
+        search(&config.query, &content)
     } else {
-        search_case_insensitive(config.query, &content)
+        search_case_insensitive(&config.query, &content)
     };
 
 
@@ -23,19 +23,33 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
-pub struct Config<'a> {
-    pub query: &'a String,
-    pub filename: &'a String,
+pub struct Config {
+    pub query: String,
+    pub filename: String,
     pub case_insensitive: bool
 }
 
-impl<'a> Config<'a> {
-    pub fn new(args: &'a [String]) -> Result<Config, &str> {
-        if args.len() < 3 {
-            return Err("no args found");
-        }
-        let query = &args[1];
-        let filename = &args[2];
+impl Config {
+    pub fn new(mut args: env::Args) -> Result<Config, &'static str> {
+        args.next();
+
+        let query = match args.next() {
+            Some(arg) => arg,
+            None => return Err("query not set")
+        };
+
+
+        let filename = match args.next() {
+            Some(arg) => arg,
+            None => return Err("filename not set")
+        };
+
+
+        // if args.len() < 3 {
+        //     return Err("no args found");
+        // }
+        // let query = &args[1];
+        // let filename = &args[2];
         let case_insensitive = env::var("CASE_INSENSITIVE").is_err();
 
         Ok(Config { query, filename, case_insensitive})
