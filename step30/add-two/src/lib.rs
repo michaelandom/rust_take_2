@@ -1,6 +1,6 @@
 use rand;
-pub fn add_one(num: i32) -> i32 {
-    num + 1
+pub fn add_two(num: i32) -> i32 {
+    num + 2
 }
 
 
@@ -10,7 +10,7 @@ mod tests{
 
     #[test]
     fn it_works() {
-        assert_eq!(3,add_one(2));
+        assert_eq!(4,add_two(2));
     }
 }
 
