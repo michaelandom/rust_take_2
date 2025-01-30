@@ -16,8 +16,16 @@ fn main() {
 
     assert_eq!(3,*y);
 
+
+    let m = Box::new(String::from("you"));
+    hello(&m);
+    
 }
 
+
+fn hello(name:&str) {
+    println!("Hello, {}!",name);
+}
 
 impl<T> Deref for MyBox<T> {
     type Target = T;
