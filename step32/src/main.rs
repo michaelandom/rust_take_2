@@ -1,3 +1,4 @@
+use std::ops::Deref;
 fn main() {
     let x =3;
     let y = &x;
@@ -17,6 +18,13 @@ fn main() {
 
 }
 
+
+impl<T> Deref for MyBox<T> {
+    type Target = T;
+    fn deref(&self) -> &Self::Target {
+        &self.0 
+     }
+}
 struct MyBox<T> (T);
 
 
