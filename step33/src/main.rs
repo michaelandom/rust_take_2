@@ -17,5 +17,8 @@ fn main() {
     };
 
     println!("CustomSmartPointer created");
+
+    
+    println!("CustomSmartPointer dropped done");
     
 }
