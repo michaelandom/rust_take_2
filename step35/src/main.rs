@@ -79,7 +79,10 @@ mod message_test{
     impl Message for MockMessage {
     
         fn send(&self, msg: &str) {
-            self.sent_messages.borrow_mut().push(String::from(msg));
+            let mut one = self.sent_messages.borrow_mut();
+            let mut two = self.sent_messages.borrow_mut();
+            one.push(String::from(msg));
+            two.push(String::from(msg));
         }
         
     }
