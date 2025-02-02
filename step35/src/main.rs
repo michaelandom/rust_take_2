@@ -61,36 +61,35 @@ where T : Message
 #[cfg(test)]
 mod message_test{
     use super::*;
+    use std::cell::RefCell;
 
     #[test]
     fn it_sends_an_over_75(){
         let mock_message = MockMessage::new();
         let mut limitTracker = LimitTracker::new(&mock_message, 100);
         limitTracker.set_value(80);
-        assert_eq!(mock_message.sent_messages.len(),1);
-
-
+        assert_eq!(mock_message.sent_messages.borrow().len(),1);
     }
 
-}
-
-struct MockMessage{
-    sent_messages: Vec<String>
-}
-
-impl MockMessage {
-
-    fn new() -> MockMessage{
-        MockMessage {
-            sent_messages: vec![]
-        }
-    }
-}
-
-impl Message for MockMessage {
-
-    fn send(&mut self, msg: &str) {
-        self.sent_messages.push(String::from(msg));
+    struct MockMessage{
+        sent_messages: RefCell<Vec<String>>
     }
     
+    impl MockMessage {
+    
+        fn new() -> MockMessage{
+            MockMessage {
+                sent_messages: RefCell::from(vec![])
+            }
+        }
+    }
+    
+    impl Message for MockMessage {
+    
+        fn send(&self, msg: &str) {
+            self.sent_messages.borrow_mut().push(String::from(msg));
+        }
+        
+    }
+
 }
