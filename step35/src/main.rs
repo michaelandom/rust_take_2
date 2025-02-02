@@ -8,14 +8,6 @@ fn main() {
     // let d = &c;
     // println!("d {}",*d);
     // *d = 20; //cannot assign to `*d`, which is behind a `&` reference  `d` is a `&` reference, so the data it refers to cannot be written
-
-    let a = LimitTracker{
-        message: &Message {},
-        max:10
-    };
-
-    
-
 }
 
 
@@ -74,12 +66,12 @@ mod message_test{
     struct MockMessage{
         sent_messages: RefCell<Vec<String>>
     }
-    
+
     impl MockMessage {
     
         fn new() -> MockMessage{
             MockMessage {
-                sent_messages: RefCell::from(vec![])
+                sent_messages: RefCell::new(vec![])
             }
         }
     }
