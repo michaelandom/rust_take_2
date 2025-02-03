@@ -26,7 +26,7 @@ fn main() {
 
 
 
-    println!("a {:?}", a.tail());
+    // println!("a {:?}", a.tail()); bug
 
 
 }
