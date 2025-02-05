@@ -8,6 +8,7 @@ fn main() {
 
     let (tx,rx) = mpsc::channel();
 
+    let tx2 = tx.clone();
 
      thread::spawn(move || {
         let msgs = vec![
@@ -18,6 +19,19 @@ fn main() {
         ];
         for msg in msgs{
             tx.send(msg).unwrap();
+            thread::sleep(Duration::from_secs(1));  
+        }
+     });
+
+     thread::spawn(move || {
+        let msgs = vec![
+            String::from("hi 2"),
+            String::from("from 2"),
+            String::from("the 2"),
+            String::from("thread 2"),
+        ];
+        for msg in msgs{
+            tx2.send(msg).unwrap();
             thread::sleep(Duration::from_secs(1));  
         }
      });
