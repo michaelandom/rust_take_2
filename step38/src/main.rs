@@ -18,12 +18,12 @@ fn main() {
         ];
         for msg in msgs{
             tx.send(msg).unwrap();
+            thread::sleep(Duration::from_secs(1));  
         }
      });
 
      for receiver in rx {
         println!("Got: {}",receiver);       
-        thread::sleep(Duration::from_secs(1));  
      }
 
 }
