@@ -13,7 +13,7 @@ pub struct Screen {
 
 
 impl Screen {
-    fn run(&self) {
+    pub fn run(&self) {
         for component in self.components.iter(){
             component.draw();
         }
@@ -25,7 +25,7 @@ impl Screen {
 pub struct Button{
     pub width: u32,
     pub height: u32,
-    pub label: u32,
+    pub label: String,
 }
 
 
@@ -33,7 +33,7 @@ pub struct Button{
 impl Draw for Button {
 
     fn draw(&self) {
-    
+    println!("draw Button");
     }
 }
 
