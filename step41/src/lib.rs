@@ -19,3 +19,23 @@ impl Screen {
         }
     }
 }
+
+
+// we cant because the components must be one type 
+// pub struct Screen<T>
+// where T : Draw
+// {
+//     pub components: Vec<Box<T>>
+// }
+
+
+
+// impl<T> Screen<T> 
+// where T :Draw
+// {
+//     fn run(&self) {
+//         for component in self.components.iter(){
+//             component.draw();
+//         }
+//     }
+// }
