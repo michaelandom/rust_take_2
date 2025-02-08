@@ -21,6 +21,22 @@ impl Screen {
 }
 
 
+
+pub struct Button{
+    pub width: u32,
+    pub height: u32,
+    pub label: u32,
+}
+
+
+
+impl Draw for Button {
+
+    fn draw(&self) {
+    
+    }
+}
+
 // we cant because the components must be one type 
 // pub struct Screen<T>
 // where T : Draw
