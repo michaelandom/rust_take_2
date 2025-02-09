@@ -1,14 +1,14 @@
-struct Post {
+pub struct Post {
     state: Option<Box<dyn State>>,
-    contant: String
+    content: String
 }
 
 impl Post {
 
-    fn new() -> Post {
+   pub fn new() -> Post {
         Post {
             state: Some(Box::new(Draft {})),
-            contant: String::new()
+            content: String::new()
         }
     }
     
@@ -17,7 +17,7 @@ impl Post {
     }
 
     pub fn add_text(&mut self, value: &str) {
-        self.contant.push_str(value);
+        self.content.push_str(value);
     }
 
     pub fn request_review(&mut self){
@@ -90,6 +90,6 @@ impl State for Published {
     }
 
     fn content<'a>(&self, post:&'a Post) -> &'a str {
-         &post.contant
+         &post.content
     }
 }
