@@ -93,3 +93,46 @@ impl State for Published {
          &post.content
     }
 }
+pub struct Post2{
+    content: String
+}
+
+impl Post2 {
+    pub fn new() -> DraftPost {
+        DraftPost{
+            content: String::new()
+        }
+    }
+    pub fn content(&self) -> &str {
+        &self.content
+   }
+}
+
+pub struct DraftPost{
+    content: String
+}
+
+impl DraftPost {
+    pub fn add_text(&mut self, value: &str) {
+        self.content.push_str(value);
+    }
+    pub fn request_review(self) -> PendingReviewPost {
+        PendingReviewPost {
+            content: self.content
+        }
+    }   
+
+}
+
+
+pub struct PendingReviewPost{
+    content: String
+}
+
+impl PendingReviewPost {
+    pub fn approve(self) -> Post2{
+        Post2 {
+            content: self.content
+        }
+    }
+}
