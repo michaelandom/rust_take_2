@@ -51,6 +51,7 @@ fn main() {
         println!("index {} value {}",index,value)
     }
 
+    let (x,y,z) = (1,2,3.0);
 
     
 }
