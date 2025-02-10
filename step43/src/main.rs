@@ -53,6 +53,10 @@ fn main() {
 
     let (x,y,z) = (1,2,3.0);
 
+    let point = (1,2);
+
+    print_coord(&point);
+
     
 }
 #[derive(Debug)]
@@ -61,4 +65,8 @@ enum Language {
     Spanish,
     Russian,
     Japanese
+}
+
+fn print_coord(&(x,y): &(i32,i32)) {
+    println!("Current location: ({}, {})",x,y)
 }
