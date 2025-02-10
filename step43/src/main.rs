@@ -1,3 +1,5 @@
+use std::usize;
+
 fn main() {
 
     let language= Language::English;
@@ -42,7 +44,11 @@ fn main() {
 
 
     while let Some(top) = stack.pop() {
-        println!("{}",top)
+        println!("{}",top);
+    }
+
+    for (index,value) in stack.iter().enumerate(){
+        println!("index {} value {}",index,value)
     }
 
 
