@@ -32,6 +32,20 @@ fn main() {
         println!("Authorization status guest");
     }
 
+
+    let mut stack = Vec::new();
+
+
+    stack.push(1);
+    stack.push(3);
+    stack.push(6);
+
+
+    while let Some(top) = stack.pop() {
+        println!("{}",top)
+    }
+
+
     
 }
 #[derive(Debug)]
