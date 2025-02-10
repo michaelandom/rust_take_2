@@ -28,6 +28,8 @@ fn main() {
         } else {
             println!("Authorization status basic");
         }
+    } else {
+        println!("Authorization status guest");
     }
 
     
