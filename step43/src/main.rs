@@ -8,6 +8,7 @@ fn main() {
         Language::Russian => println!("Russian"),
         //Language::Japanese => println!("Japanese"),
         lang => println!("Other {:?}", lang),
+        // _ => println!("Other"),
         
     }
     
