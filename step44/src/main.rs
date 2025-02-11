@@ -37,7 +37,7 @@ fn main() {
     }
 
 
-    let message = Message::ChangeColor(1, 2, 3);
+    let message = Message::ChangeColor(Color::Rgb(1, 3, 4));
 
     match message {
         Message::Quit => {
@@ -56,10 +56,26 @@ fn main() {
             println!("ChangeColor Hsv  {}, {}, {}",r,g,b);
         },
 
-
-        
+        Message::ChangeColor (Color::Hsv(r,..) )=> {
+            println!("ChangeColor Hsv  {}",r);
+        }
     }
 
+    let  s= Some(String::from("value"));
+    
+    if let Some(_) = s {
+        println!("found a string")
+    }
+
+    let sum =Some(5);
+
+    match sum {
+        Some(x) if x<5 => println!("< 5"),
+        Some(x) => println!("< 5"),
+        _ => println!("")
+    }
+
+    println!("{:?}",s);
 }
 fn addTwo(_:i32,y:i32)-> i32{
     y+1
