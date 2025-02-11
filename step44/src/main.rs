@@ -28,6 +28,14 @@ fn main() {
     assert_eq!(7,b);
 
 
+    match point {
+
+        Point {x ,y:0} => println!("y =0"),
+        Point {x:0 ,y} => println!("x =0"),
+        Point{x,y} => println!("no 0")
+    
+    }
+
 }
 
 struct Point{
