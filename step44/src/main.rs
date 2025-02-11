@@ -61,7 +61,9 @@ fn main() {
     }
 
 }
-
+fn addTwo(_:i32,y:i32)-> i32{
+    y+1
+}
 struct Point{
     x:i32,
     y:i32,
