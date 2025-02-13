@@ -18,4 +18,19 @@ fn main() {
     dangerous();
    }
 
+
+
+   let mut v = vec![1,2,3,5,8];
+
+   let n = &mut v[..];
+
+
+   let (a,b) = n.split_at_mut(3);
+
+
+   assert_eq!(a,&mut [1,2,3]);
+   assert_eq!(b,&mut [5,8])
+
+
+
 }
