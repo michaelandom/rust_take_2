@@ -1,5 +1,22 @@
 use std::slice;
+
+static mut COUNT: u32=0;
+fn add_count() {
+   unsafe  {
+      COUNT+=1;  
+    }
+}
 fn main() {
+
+    add_count();
+
+
+    
+    unsafe {
+        println!("COUNT {}", COUNT);
+    }
+
+
    let mut num=5;
 
    let r1= &num as *const i32;
