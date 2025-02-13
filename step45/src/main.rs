@@ -10,6 +10,7 @@ fn main() {
 
     println!("r1 is: {}", *r1);
     println!("r2 is: {}", *r2);
+    println!("-3 c {}",abs(-3));
    }
 
    unsafe fn dangerous(){}
@@ -52,3 +53,13 @@ fn split_at_mut(slice: &mut [i32], mid: usize) -> (&mut [i32] , &mut [i32]) {
     }
     
 }
+
+extern "C" {
+    fn abs(input: i32) -> i32;
+}
+
+pub extern "C" fn call_from_c(){
+    println!("from c")
+}
+
+
