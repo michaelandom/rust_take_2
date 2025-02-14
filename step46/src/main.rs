@@ -2,10 +2,48 @@ use std::ops::Add;
 
 fn main() {
 
+    let person = Human;
+
+    Pilot::fly(&person);
+    Wizard::fly(&person);
+    person.fly();
     
 }
 
 
+trait Pilot {
+    fn fly(&self);
+}
+
+trait Wizard {
+    fn fly(&self);
+}
+
+
+struct Human;
+
+impl Human {
+    fn fly(&self){
+        println!("Human fly");
+    }
+}
+
+impl Wizard for Human {
+
+    fn fly(&self) {
+        println!("Wizard fly");
+    }
+    
+}
+
+
+impl Pilot for Human {
+
+    fn fly(&self) {
+        println!("Pilot fly");
+    }
+    
+}
 
 struct Millimeters(u32);
 struct Meters(u32);
