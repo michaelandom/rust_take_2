@@ -1,4 +1,4 @@
-use std::ops::Add;
+use std::{fmt::{self, write}, ops::Add};
 
 fn main() {
 
@@ -12,7 +12,37 @@ fn main() {
     <Human as Wizard>::fly2();
     <Human as Pilot>::fly2();
 
+
+    let test = Tester(2);
+
+    println!("{:?}",test.outline_print());
     
+}
+
+
+trait Outline:fmt::Display {
+
+    fn outline_print(&self) {
+        let output = self.to_string();
+
+        let len = output.len();
+println!("{}", "*".repeat(len+4));
+println!("*{}*", " ".repeat(len+2));
+println!("* {} *", output);
+println!("*{}*", " ".repeat(len+2));
+println!("{}", "*".repeat(len+4));     
+    }
+}
+#[derive(Debug)]
+struct Tester(i32);
+
+impl Outline for Tester{
+}
+
+impl fmt::Display for Tester {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f,"{}", self.0)
+    }
 }
 
 
