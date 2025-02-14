@@ -7,16 +7,23 @@ fn main() {
     Pilot::fly(&person);
     Wizard::fly(&person);
     person.fly();
+
+    Human::fly2();
+    <Human as Wizard>::fly2();
+    <Human as Pilot>::fly2();
+
     
 }
 
 
 trait Pilot {
     fn fly(&self);
+    fn fly2();
 }
 
 trait Wizard {
     fn fly(&self);
+    fn fly2();
 }
 
 
@@ -26,6 +33,9 @@ impl Human {
     fn fly(&self){
         println!("Human fly");
     }
+    fn fly2(){
+        println!("Human fly2");
+    }
 }
 
 impl Wizard for Human {
@@ -33,7 +43,9 @@ impl Wizard for Human {
     fn fly(&self) {
         println!("Wizard fly");
     }
-    
+    fn fly2(){
+        println!("Wizard fly2");
+    }
 }
 
 
@@ -41,6 +53,10 @@ impl Pilot for Human {
 
     fn fly(&self) {
         println!("Pilot fly");
+    }
+
+    fn fly2(){
+        println!("Pilot fly2");
     }
     
 }
