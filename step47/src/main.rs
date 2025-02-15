@@ -27,6 +27,8 @@ fn main() {
 
     }
 
+    let s1: &str = "herl";
+
 
 }
 
