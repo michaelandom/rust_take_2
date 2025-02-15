@@ -6,6 +6,14 @@ fn main() {
 
 
     println!("wrapper {}", wrapper);
+
+    type  kelo = i32;
+
+
+    let a =5;
+    let b: kelo= 10;
+
+    println!("a + b = {}",a+b);
 }
 
 
