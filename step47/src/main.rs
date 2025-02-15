@@ -15,15 +15,15 @@ fn main() {
 
     println!("a + b = {}",a+b);
 
-    type lont_type = dyn Fn() + Send + 'static;
+    type lont_type = Box<dyn Fn() + Send + 'static>;
 
-    let f: Box<lont_type> = Box::new( || println!("hi"));
+    let f: lont_type = Box::new( || println!("hi"));
 
-    fn take_long_type(f: Box<lont_type>) {
+    fn take_long_type(f: lont_type) {
 
     }
 
-    fn take_long_type_2(f: Box<lont_type>) {
+    fn take_long_type_2(f: lont_type) {
 
     }
 
