@@ -26,3 +26,15 @@ fn main() {
 
     let list_of_statuses: Vec<Status> = (0u32..20).map(Status::Value).collect();
 }
+
+fn returns_closure(arg: i32) -> impl Fn(i32) -> i32 {
+    |x| x + 1
+}
+
+fn returns_closure_2(a: i32) -> Box<dyn Fn(i32) -> i32> {
+    if a > 0 {
+        Box::new(move |b| a + b)
+    } else {
+        Box::new(move |b| a - b)
+    }
+}
