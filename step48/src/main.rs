@@ -13,6 +13,12 @@ where T : Fn(i32) -> i32
 fn main() {
     let answer = do_twice(add_one, 5);
     println!("the ans is : {}", answer);
+
+    let list_num = vec![1,2];
+
+    let list_string: Vec<String> = list_num.iter().map(|i| i.to_string()).collect(); 
+
+    println!("{:?}",list_string);
 }
 
 
