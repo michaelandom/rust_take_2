@@ -25,6 +25,7 @@ fn handle_connection(mut stream : TcpStream) {
 
     let mut  buffer = [0;1024];
 
+    
 
     let get = b"GET / HTTP/1.1\r\n";
     stream.read(&mut buffer).unwrap();
