@@ -6,7 +6,6 @@ fn main() {
 
 #[macro_export]
 macro_rules! vec {
-    //  vec![1,2,3];  
     ($($x:expr), *) => {
 
         {
